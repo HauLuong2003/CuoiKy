@@ -47,8 +47,8 @@ public class ADDTheoGio implements ActionListener {
 		Double ThanhTien = sogiothue*dongia;
 			
 		HDTheoGio hoadon = new HDTheoGio(mahd, tenkh, maphong,ngaylap,dongia,sogiothue,ThanhTien);
-		//hd.addHD1(hoadon);	
-		hoadon.Them();
+		hd.addHD1(hoadon);	
+		//hoadon.Them();
 		loadTableGio();
 		mahoadonJTextField.setText("");
 		tenkhachhangJTextField.setText("");
