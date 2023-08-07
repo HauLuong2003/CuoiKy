@@ -1,13 +1,18 @@
 package DomainLayer;
 import Observer.Publisher;
-import java.util.Date;
+import Observer.Subscriber;
 
-public class HDTheoNgay extends HoaDon{
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+
+public class HDTheoNgay extends HoaDon implements Publisher{
 	  private HDService hoadonService;
+	  private List<Subscriber> subscribers = new LinkedList<Subscriber>();
       int SoNgayO;
-      public HDTheoNgay() {}
-      
-      
+      public HDTheoNgay() {    	 
+    	  hoadonService = new HDServiceiml();
+      }           
       public HDTheoNgay(int MaHD, String TenKH
     		  ,int MaPhong,Date NgayHD,Double DonGia,int SoNgayO, Double thanhTien ) {
     	  this.MaHD = MaHD;
@@ -19,8 +24,7 @@ public class HDTheoNgay extends HoaDon{
     	  this.SoNgayO = SoNgayO;
     	  hoadonService = new HDServiceiml();
       }
-	@Override
-	
+	@Override	
 	public Double ThanhTien() {
 		
 		Double thanhtien =(double) 0;
@@ -34,10 +38,15 @@ public class HDTheoNgay extends HoaDon{
 	}
 	public void Them() {
 		HDTheoNgay hoadon = new HDTheoNgay(this.MaHD, TenKH, SoNgayO, NgayHD, DonGia, SoNgayO,ThanhTien());
-		hoadonService.addHD(hoadon);
+		hoadonService.addHD(hoadon);	
+		notifySubscribers();	
+		 
+	}
+	public void Xoa(int ma) {
+		//HDTheoNgay hoadon = new HDTheoNgay();
+		hoadonService.deleteHD(ma);
 		
-		Publisher publisher = new Publisher();
-		publisher.notifySubscribers();
+		notifySubscribers();
 	}
 	public void setmaHD(int MaHD) {
            this.MaHD = MaHD;		
@@ -78,8 +87,21 @@ public class HDTheoNgay extends HoaDon{
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
+		
 		return "Ma hoa don :"+MaHD +", Ten khach hang:"+TenKH
 				+", Ma phong"+MaPhong+", Ngay hoa don :"+NgayHD+", Don gia:"+DonGia+", So ngay o:"+SoNgayO + ThanhTien();
+	}
+	@Override
+	public void subscribe(Subscriber s) {		
+		subscribers.add(s);	
+	}
+	@Override
+	public void unsubscribe(Subscriber s) {		
+		subscribers.remove(s);
+	}
+	@Override
+	public void notifySubscribers() {
+		for(Subscriber s: subscribers)
+		s.update();
 	}
 }

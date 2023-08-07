@@ -32,7 +32,7 @@ public class ADDTheoGio implements ActionListener {
 		int mahd = Integer.parseInt(mahoadonJTextField.getText());
 		String tenkh = tenkhachhangJTextField.getText();
 		int maphong =Integer.parseInt(maphongJTextField.getText());
-				// chuyen dạng ngày
+	   // chuyen dạng ngày
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date ngaylap = new Date();

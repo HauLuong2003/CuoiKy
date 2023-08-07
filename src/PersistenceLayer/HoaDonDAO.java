@@ -12,7 +12,7 @@ public interface HoaDonDAO {
 	  void deleteHD(int MaHD);
 	  HDTheoNgay getHDByMa(int MaHD);
 	  List<HDTheoNgay> getAllHD();    
-	  Double TinhTong( );
+	  Double TinhTong();
 	  
 	  void addHD1(HDTheoGio hoadon);
 	  void updateHD1(HDTheoGio hoadon);

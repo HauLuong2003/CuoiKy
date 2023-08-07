@@ -10,6 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import Observer.Publisher;
 import Observer.Subscriber;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -40,7 +42,7 @@ public class GUI extends JFrame implements Subscriber  {
         private TimKiemGio timkiemGio;
         private TongTien tong;
         private ThanhTien tong1;
-
+        private HDTheoNgay hdngay;
         
 		private JLabel mahoadonJLabel;
 		private JLabel ngaylaphoadonJLabel;
@@ -85,8 +87,7 @@ public class GUI extends JFrame implements Subscriber  {
 
 		public GUI(){
              hoaDonService = new HDServiceiml();             
-             UI();
-             
+             UI();            
              add = new ADDTheoNgay(this);
              addgio = new ADDTheoGio(this);
              updateNgay = new UpdateNgay(this);  
@@ -97,26 +98,32 @@ public class GUI extends JFrame implements Subscriber  {
              timkiemGio = new TimKiemGio(this);
              tong = new TongTien(this);
              tong1 = new ThanhTien(this);
-//             hdNgay = new HDTheoNgay();
+             hdngay = new HDTheoNgay();
+             //đăng kí
+       //      hdngay.subscribe(this);
+
              // controller thêm ngày
+             
             // add.LoadTableNgay();
              themButton1.addActionListener(add);
              //controller sửa   ngày
-             updateNgay.LoadTableNgay();
+             //updateNgay.LoadTableNgay();
              suaButton1.addActionListener(updateNgay);
              // controller thêm giờ
-             addgio.loadTableGio();
+           //  addgio.loadTableGio();
              themButton.addActionListener(addgio);
              //controller sửa giờ
-             updateGio.loadTableGio();
+             //updateGio.loadTableGio();
              suaButton.addActionListener(updateGio);
              //controller xóa ngày
-             deletNgay.LoadTableNgay();
+            // deletNgay.LoadTableNgay();
              xoaButton1.addActionListener(deletNgay);
              //controller xóa giờ
-             deletGio.LoadTableGio();
+            // deletGio.LoadTableGio();
              xoaButton.addActionListener(deletGio);
-             
+             //tải dữ liệu lên bảng
+             loadTableGio();
+             LoadTableNgay();
              timkiemJButton1.addActionListener(timkiem);
              timkiemJButton.addActionListener(timkiemGio);
              tongthanhtienJButton.addActionListener(tong1);
@@ -129,7 +136,6 @@ public class GUI extends JFrame implements Subscriber  {
 			setBounds(100, 100, 890, 786);
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			
@@ -551,6 +557,9 @@ public class GUI extends JFrame implements Subscriber  {
 			return songaythueJTextField1;
 		}
 
+		public HDTheoNgay getHdngay() {
+			return hdngay;
+		}
 		@Override
 		public void update() {			
 			LoadTableNgay();
@@ -566,11 +575,10 @@ public class GUI extends JFrame implements Subscriber  {
 			            		 hoadon.getdonGia(),  hoadon.getsoNgayO(), hoadon.ThanhTien() };
 			            tableModel1.addRow(rowData);
 			        }
-		    }
-		 public void loadTableGio() {
-				
-				List<HDTheoGio> hoadons = hoaDonService.getAllhd();
 
+		    }
+		 public void loadTableGio() {				
+				List<HDTheoGio> hoadons = hoaDonService.getAllhd();
 			      DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
 				  tableModel.setRowCount(0);
 				 for (HDTheoGio hoadon : hoadons) {

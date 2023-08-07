@@ -41,7 +41,9 @@ import DomainLayer.HDTheoGio;
 				}
 				 int mahd = Integer.parseInt(mahoadonJTextField1.getText());
 		         mahd =(int) table1.getValueAt(row, 0);
-		  		hd.deletehd1(mahd);		
+		  		//hd.deletehd1(mahd);	
+		         HDTheoGio hdgio = new HDTheoGio();
+		        hdgio.xoa(mahd);
 		  		LoadTableGio();	  		
 		  		mahoadonJTextField1.setText("");	  	  
 				tenkhachhangJTextField1.setText("");		

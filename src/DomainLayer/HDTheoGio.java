@@ -1,13 +1,20 @@
 package DomainLayer;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 import Observer.Publisher;
+import Observer.Subscriber;
 
 
-public class HDTheoGio extends HoaDon{
+public class HDTheoGio extends HoaDon implements Publisher{
 	 int SoGioThue;
+	 private List<Subscriber> subscribers = new LinkedList<Subscriber>();
 	 private HDService hoadonService;
+	 public HDTheoGio() {
+			  hoadonService = new HDServiceiml();
+	 }
      public HDTheoGio(int MaHD, String TenKH,int MaPhong,Date NgayHD
    		  ,Double DonGia,int SoGioThue,double ThanhTien ) {
    	  this.MaHD = MaHD;
@@ -29,10 +36,12 @@ public class HDTheoGio extends HoaDon{
 	}
 	public void Them() {
 		HDTheoGio hoadon = new HDTheoGio(this.MaHD, TenKH, MaPhong, NgayHD, DonGia, SoGioThue,ThanhTien());
-		hoadonService.addHD1(hoadon);		
-		
-		Publisher publisher = new Publisher();
-		publisher.notifySubscribers();
+		hoadonService.addHD1(hoadon);				
+		notifySubscribers();
+	}
+	public void xoa(int ma) {
+		hoadonService.deletehd1(ma);				
+		notifySubscribers();
 	}
 	public void setmaHD(int MaHD) {
           this.MaHD = MaHD;		
@@ -76,6 +85,22 @@ public class HDTheoGio extends HoaDon{
 		// TODO Auto-generated method stub
 		return "Ma hoa don :"+MaHD +", Ten khach hang:"+TenKH
 				+", Ngay hoa don :"+NgayHD+", Ma phong"+MaPhong+", Don gia:"+DonGia+", So gio thue:"+SoGioThue + ThanhTien();
+	}
+	@Override
+	public void subscribe(Subscriber s) {
+		subscribers.add(s);	
+		
+	}
+	@Override
+	public void unsubscribe(Subscriber s) {
+		subscribers.remove(s);
+		
+	}
+	@Override
+	public void notifySubscribers() {
+		for(Subscriber s: subscribers)
+		s.update();
+		
 	}
 }
 

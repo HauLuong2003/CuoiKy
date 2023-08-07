@@ -79,7 +79,7 @@ public class HoaDonDAOiml implements HoaDonDAO {
 
 	@Override
 	public Double tinhTong() {
-		// TODO Auto-generated method stub
+
 		return hoaDonGateway.tinhTong();
 	}
 
