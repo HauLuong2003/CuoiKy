@@ -21,7 +21,8 @@ public class ADDTheoGio implements ActionListener {
 }
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		HDService hd = Gui.getHoaDonService();	
+		//HDService hd = Gui.getHoaDonService();
+		HDTheoGio hdgio = Gui.getHdgio();
 		JTextField mahoadonJTextField = Gui.getMahoadonJTextField();
 		JTextField tenkhachhangJTextField = Gui.getTenkhachhangJTextField();
 	    JTextField maphongJTextField = Gui.getMaphongJTextField();
@@ -44,11 +45,18 @@ public class ADDTheoGio implements ActionListener {
 		}			
 		Double dongia = Double.parseDouble(dongiaJTextField.getText()) ;
 		int sogiothue = Integer.parseInt(sogiothueJTextField.getText());
-		Double ThanhTien = sogiothue*dongia;
-			
-		HDTheoGio hoadon = new HDTheoGio(mahd, tenkh, maphong,ngaylap,dongia,sogiothue,ThanhTien);
-		hd.addHD1(hoadon);	
-		//hoadon.Them();
+		
+//		Double ThanhTien = sogiothue*dongia;			
+//		HDTheoGio hoadon = new HDTheoGio(mahd, tenkh, maphong,ngaylap,dongia,sogiothue,ThanhTien);
+//		hd.addHD1(hoadon);	
+		
+		hdgio.setmaHD(mahd);
+		hdgio.settenKH(tenkh);
+		hdgio.setmaPhong(maphong);
+		hdgio.setngayHD(ngaylap);
+		hdgio.setdonGia(dongia);
+		hdgio.setsoGioThue(sogiothue);
+		hdgio.Them();
 		loadTableGio();
 		mahoadonJTextField.setText("");
 		tenkhachhangJTextField.setText("");

@@ -43,7 +43,7 @@ public class GUI extends JFrame implements Subscriber  {
         private TongTien tong;
         private ThanhTien tong1;
         private HDTheoNgay hdngay;
-        
+        private HDTheoGio hdgio;
 		private JLabel mahoadonJLabel;
 		private JLabel ngaylaphoadonJLabel;
 		private JLabel dongiaJLabel;
@@ -99,9 +99,10 @@ public class GUI extends JFrame implements Subscriber  {
              tong = new TongTien(this);
              tong1 = new ThanhTien(this);
              hdngay = new HDTheoNgay();
+             hdgio = new HDTheoGio();
              //đăng kí
-       //      hdngay.subscribe(this);
-
+             hdngay.subscribe(this);
+             hdgio.subscribe(this);
              // controller thêm ngày
              
             // add.LoadTableNgay();
@@ -133,7 +134,7 @@ public class GUI extends JFrame implements Subscriber  {
 			setTitle("ManagementCustomerInvoicesApp");
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setLocationRelativeTo(null);
-			setBounds(100, 100, 890, 786);
+			setBounds(100, 100, 850, 700);
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setContentPane(contentPane);
@@ -559,6 +560,10 @@ public class GUI extends JFrame implements Subscriber  {
 
 		public HDTheoNgay getHdngay() {
 			return hdngay;
+		}
+		
+		public HDTheoGio getHdgio() {
+			return hdgio;
 		}
 		@Override
 		public void update() {			

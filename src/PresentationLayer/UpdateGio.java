@@ -27,7 +27,8 @@ import DomainLayer.HDTheoNgay;
 		}
 		
 		   public void update() {   		
-			   HDService hd = Gui.getHoaDonService();	
+			  // HDService hd = Gui.getHoaDonService();	
+			   HDTheoGio hdgio =Gui.getHdgio();
 				JTextField mahoadonJTextField = Gui.getMahoadonJTextField();
 				JTextField tenkhachhangJTextField = Gui.getTenkhachhangJTextField();
 			    JTextField maphongJTextField = Gui.getMaphongJTextField();
@@ -50,10 +51,15 @@ import DomainLayer.HDTheoNgay;
 				}			
 				Double dongia = Double.parseDouble(dongiaJTextField.getText()) ;
 				int sogiothue = Integer.parseInt(sogiothueJTextField.getText());
-				Double ThanhTien = sogiothue*dongia;
-					
-				HDTheoGio hoadon = new HDTheoGio(mahd, tenkh, maphong,ngaylap,dongia,sogiothue,ThanhTien);
-				hd.updateHD1(hoadon);	
+			//	Double ThanhTien = sogiothue*dongia;
+				hdgio.setmaHD(mahd);
+				hdgio.settenKH(tenkh);
+				hdgio.setmaPhong(maphong);
+				hdgio.setngayHD(ngaylap);
+				hdgio.setdonGia(dongia);
+				hdgio.setsoGioThue(sogiothue);	
+				//HDTheoGio hoadon = new HDTheoGio(mahd, tenkh, maphong,ngaylap,dongia,sogiothue,ThanhTien);
+				hdgio.Sua();	
 				loadTableGio();
 				mahoadonJTextField.setText("");
 				tenkhachhangJTextField.setText("");

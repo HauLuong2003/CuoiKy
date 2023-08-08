@@ -25,8 +25,8 @@ import DomainLayer.HDTheoGio;
 		}
 	    public void Delet() {    	
 	    	 JTable table1 = Gui.getTable();
-			 HDService hd = Gui.getHoaDonService();
-			 
+			// HDService hd = Gui.getHoaDonService();
+			 HDTheoGio hdgio = Gui.getHdgio();
 			 JTextField mahoadonJTextField1 = Gui.getMahoadonJTextField();
 		     JTextField tenkhachhangJTextField1 = Gui.getTenkhachhangJTextField();
 		     JTextField maphongJTextField1 = Gui.getMaphongJTextField();
@@ -42,7 +42,7 @@ import DomainLayer.HDTheoGio;
 				 int mahd = Integer.parseInt(mahoadonJTextField1.getText());
 		         mahd =(int) table1.getValueAt(row, 0);
 		  		//hd.deletehd1(mahd);	
-		         HDTheoGio hdgio = new HDTheoGio();
+		        // HDTheoGio hdgio = new HDTheoGio();
 		        hdgio.xoa(mahd);
 		  		LoadTableGio();	  		
 		  		mahoadonJTextField1.setText("");	  	  

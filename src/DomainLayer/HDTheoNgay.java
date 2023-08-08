@@ -22,7 +22,7 @@ public class HDTheoNgay extends HoaDon implements Publisher{
     	  this.DonGia =DonGia;
 //    	  super();
     	  this.SoNgayO = SoNgayO;
-    	  hoadonService = new HDServiceiml();
+    	  //hoadonService = new HDServiceiml();
       }
 	@Override	
 	public Double ThanhTien() {
@@ -44,8 +44,12 @@ public class HDTheoNgay extends HoaDon implements Publisher{
 	}
 	public void Xoa(int ma) {
 		//HDTheoNgay hoadon = new HDTheoNgay();
-		hoadonService.deleteHD(ma);
-		
+		hoadonService.deleteHD(ma);		
+		notifySubscribers();
+	}
+	public void Sua() {
+		HDTheoNgay hoadon = new HDTheoNgay(this.MaHD, TenKH, SoNgayO, NgayHD, DonGia, SoNgayO,ThanhTien());
+		hoadonService.updateHD(hoadon);
 		notifySubscribers();
 	}
 	public void setmaHD(int MaHD) {

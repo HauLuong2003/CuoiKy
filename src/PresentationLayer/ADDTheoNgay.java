@@ -28,8 +28,8 @@ public class ADDTheoNgay implements ActionListener {
      	ThemNgay();		 
 	}	
       public void ThemNgay() {   		
-  		  HDService hd = Gui.getHoaDonService();		
-  		 // HDTheoNgay hdngay = Gui.getHdngay();
+//  	  HDService hd = Gui.getHoaDonService();		
+  		  HDTheoNgay hdngay = Gui.getHdngay();
   	      JTextField mahoadonJTextField1 = Gui.getMahoadonJTextField1();
           JTextField tenkhachhangJTextField1 = Gui.getTenkhachhangJTextField1();
           JTextField maphongJTextField1 = Gui.getMaphongJTextField1();
@@ -50,20 +50,20 @@ public class ADDTheoNgay implements ActionListener {
   		}			
   		Double dongia = Double.parseDouble(dongiaJTextField1.getText()) ;
   		int songaythue = Integer.parseInt(songaythueJTextField1.getText());
-  	  Double ThanhTien = songaythue*dongia;	     				       
-  	    HDTheoNgay hoadon = new HDTheoNgay(mahd, tenkh, maphong,ngaylap,dongia,songaythue,ThanhTien); 		
-  	    hd.addHD(hoadon);	  		
-//  		hdngay.setmaHD(mahd);    	
-//  		hdngay.settenKH(tenkh);
-//  		hdngay.setmaPhong(maphong);
-//    	hdngay.setdonGia(dongia);    	
-//    	hdngay.setngayHD(ngaylap);
-//    	hdngay.setsoNgayO(songaythue);
-//    	hdngay.Them();
+//  	  Double ThanhTien = songaythue*dongia;	     				       
+//  	    HDTheoNgay hoadon = new HDTheoNgay(mahd, tenkh, maphong,ngaylap,dongia,songaythue,ThanhTien); 		
+//  	    hd.addHD(hoadon);	  		
+  		hdngay.setmaHD(mahd);    	
+  		hdngay.settenKH(tenkh);
+  		hdngay.setmaPhong(maphong);
+    	hdngay.setdonGia(dongia);    	
+    	hdngay.setngayHD(ngaylap);
+    	hdngay.setsoNgayO(songaythue);
+    	hdngay.Them();
     	
     	//hoadon.Them();
   		//hdngay.ThanhTien();
-   	LoadTableNgay();
+     	LoadTableNgay();
       }
       
      //  tai du lieu len bang      

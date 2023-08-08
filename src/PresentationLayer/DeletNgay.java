@@ -24,8 +24,8 @@ public class DeletNgay implements ActionListener {
 	}
     public void Delet() {    	
     	 JTable table1 = Gui.getTable1();
-		 HDService hd = Gui.getHoaDonService();
-		 
+		// HDService hd = Gui.getHoaDonService();
+		 HDTheoNgay hdngay = Gui.getHdngay();
 		 JTextField mahoadonJTextField1 = Gui.getMahoadonJTextField1();
 	     JTextField tenkhachhangJTextField1 = Gui.getTenkhachhangJTextField1();
 	     JTextField maphongJTextField1 = Gui.getMaphongJTextField1();
@@ -40,7 +40,7 @@ public class DeletNgay implements ActionListener {
 			}
 			 int mahd = Integer.parseInt(mahoadonJTextField1.getText());
 	         mahd =(int) table1.getValueAt(row, 0);
-	  		hd.deleteHD(mahd);		
+	         hdngay.Xoa(mahd);		
 	  		LoadTableNgay();	  		
 	  		mahoadonJTextField1.setText("");	  	  
 			tenkhachhangJTextField1.setText("");		
