@@ -60,7 +60,7 @@ import DomainLayer.HDTheoNgay;
 				hdgio.setsoGioThue(sogiothue);	
 				//HDTheoGio hoadon = new HDTheoGio(mahd, tenkh, maphong,ngaylap,dongia,sogiothue,ThanhTien);
 				hdgio.Sua();	
-				loadTableGio();
+				//loadTableGio();
 				mahoadonJTextField.setText("");
 				tenkhachhangJTextField.setText("");
 				maphongJTextField.setText("");

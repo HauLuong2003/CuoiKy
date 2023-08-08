@@ -44,6 +44,7 @@ public class GUI extends JFrame implements Subscriber  {
         private ThanhTien tong1;
         private HDTheoNgay hdngay;
         private HDTheoGio hdgio;
+        
 		private JLabel mahoadonJLabel;
 		private JLabel ngaylaphoadonJLabel;
 		private JLabel dongiaJLabel;
@@ -565,6 +566,8 @@ public class GUI extends JFrame implements Subscriber  {
 		public HDTheoGio getHdgio() {
 			return hdgio;
 		}
+		
+
 		@Override
 		public void update() {			
 			LoadTableNgay();

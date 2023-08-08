@@ -57,7 +57,7 @@ public class ADDTheoGio implements ActionListener {
 		hdgio.setdonGia(dongia);
 		hdgio.setsoGioThue(sogiothue);
 		hdgio.Them();
-		loadTableGio();
+		//loadTableGio();
 		mahoadonJTextField.setText("");
 		tenkhachhangJTextField.setText("");
 		maphongJTextField.setText("");

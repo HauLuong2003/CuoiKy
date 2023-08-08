@@ -24,31 +24,33 @@ public class HDTheoNgay extends HoaDon implements Publisher{
     	  this.SoNgayO = SoNgayO;
     	  //hoadonService = new HDServiceiml();
       }
+     // public void setGui 
 	@Override	
 	public Double ThanhTien() {
 		
 		Double thanhtien =(double) 0;
 		if(SoNgayO > 7) {
-		thanhtien = (SoNgayO*DonGia)-(SoNgayO*DonGia)*0.2;
+		thanhtien = (this.SoNgayO*this.DonGia)-(this.SoNgayO*this.DonGia)*0.2;
 		}
 		else {
-		 thanhtien =SoNgayO*DonGia;
+		 thanhtien =this.SoNgayO*this.DonGia;
 		}
 		return thanhtien;		
 	}
 	public void Them() {
+//		HDTheoNgay hoadon = new HDTheoNgay();
 		HDTheoNgay hoadon = new HDTheoNgay(this.MaHD, TenKH, SoNgayO, NgayHD, DonGia, SoNgayO,ThanhTien());
-		hoadonService.addHD(hoadon);	
-		notifySubscribers();	
-		 
+
+		hoadonService.addHD(hoadon);
+
+		notifySubscribers();
 	}
-	public void Xoa(int ma) {
-		//HDTheoNgay hoadon = new HDTheoNgay();
+	public void Xoa(int ma) {		
 		hoadonService.deleteHD(ma);		
 		notifySubscribers();
 	}
 	public void Sua() {
-		HDTheoNgay hoadon = new HDTheoNgay(this.MaHD, TenKH, SoNgayO, NgayHD, DonGia, SoNgayO,ThanhTien());
+		HDTheoNgay hoadon = new HDTheoNgay(this.MaHD, this.TenKH, this.SoNgayO, this.NgayHD, this.DonGia, this.SoNgayO,ThanhTien());
 		hoadonService.updateHD(hoadon);
 		notifySubscribers();
 	}
@@ -56,8 +58,7 @@ public class HDTheoNgay extends HoaDon implements Publisher{
            this.MaHD = MaHD;		
 	}
 	public int getmaHD() {
-		return MaHD;
-		
+		return MaHD;		
 	}
 	public void settenKH(String TenKH) {
         this.TenKH = TenKH;		

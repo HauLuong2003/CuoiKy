@@ -22,20 +22,19 @@ public class UpdateNgay implements ActionListener {
     }
 	@Override
 	public void actionPerformed(ActionEvent e) {		
-		SuaNgay() ;
+	//	SuaNgay() ;
 	}
 	public void SuaNgay() {
 		 JTable table1 = Gui.getTable1();
-		 HDService hd = Gui.getHoaDonService();
-		 
+		// HDService hd = Gui.getHoaDonService();
+		 HDTheoNgay hdngay =Gui.getHdngay();
 		 JTextField mahoadonJTextField1 = Gui.getMahoadonJTextField1();
 	     JTextField tenkhachhangJTextField1 = Gui.getTenkhachhangJTextField1();
 	     JTextField maphongJTextField1 = Gui.getMaphongJTextField1();
 	     JTextField ngaylaphoadonJTextField1 = Gui.getNgaylaphoadonJTextField1();
 	     JTextField dongiaJTextField1 = Gui.getDongiaJTextField1();
 	     JTextField songaythueJTextField1 =Gui.getSongaythueJTextField1();
-	     
-		
+	     		
 			int row = table1.getSelectedRow();
 			if(row == -1) {
 				 JOptionPane.showMessageDialog(null, "Please select a student to edit.");
@@ -54,10 +53,19 @@ public class UpdateNgay implements ActionListener {
 	  		}			
 	  		Double dongia = Double.parseDouble(dongiaJTextField1.getText()) ;
 	  		int songaythue = Integer.parseInt(songaythueJTextField1.getText());
-	  		Double ThanhTien = songaythue*dongia;	     				       
-	  	    HDTheoNgay hoadon = new HDTheoNgay(mahd, tenkh, maphong,ngaylap,dongia,songaythue,ThanhTien);
-	  		hd.updateHD(hoadon);		
-	  		LoadTableNgay();	  		
+//	  		Double ThanhTien = songaythue*dongia;	     				       
+//	  	    HDTheoNgay hoadon = new HDTheoNgay(mahd, tenkh, maphong,ngaylap,dongia,songaythue,ThanhTien);
+//	  		hd.updateHD(hoadon);
+	  		
+	  		hdngay.setmaHD(mahd);    	
+	  		hdngay.settenKH(tenkh);
+	  		hdngay.setmaPhong(maphong);
+	    	hdngay.setdonGia(dongia);    	
+	    	hdngay.setngayHD(ngaylap);
+	    	hdngay.setsoNgayO(songaythue);
+	    	hdngay.Sua();
+	    	
+	  		//LoadTableNgay();	  		
 	  		mahoadonJTextField1.setText("");	  	  
 			tenkhachhangJTextField1.setText("");		
 			maphongJTextField1.setText("");

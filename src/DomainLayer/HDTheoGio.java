@@ -30,14 +30,17 @@ public class HDTheoGio extends HoaDon implements Publisher{
 		double ThanhTien = 0;
 		if(SoGioThue <= 30 && SoGioThue >0 ) {
 			 ThanhTien = SoGioThue*DonGia;
+		}		
+		else {
+			return ThanhTien;
 		}
-
 		return ThanhTien;		
 	}
 	public void Them() {
 		HDTheoGio hoadon = new HDTheoGio(this.MaHD, TenKH, MaPhong, NgayHD, DonGia, SoGioThue,ThanhTien());
 		hoadonService.addHD1(hoadon);				
 		notifySubscribers();
+		
 	}
 	public void xoa(int ma) {
 		hoadonService.deletehd1(ma);				

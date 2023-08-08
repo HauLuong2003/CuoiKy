@@ -25,11 +25,16 @@ public class ADDTheoNgay implements ActionListener {
     } 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-     	ThemNgay();		 
-	}	
+     	ThemNgay();
+		//HDService hd = Gui.getHoaDonService();
+		//  HDTheoNgay hdngay = Gui.getHdngay();
+	  
+	}
+      
+	
       public void ThemNgay() {   		
-//  	  HDService hd = Gui.getHoaDonService();		
-  		  HDTheoNgay hdngay = Gui.getHdngay();
+     	//  HDService hd = Gui.getHoaDonService();		
+    	  HDTheoNgay hdngay = Gui.getHdngay();
   	      JTextField mahoadonJTextField1 = Gui.getMahoadonJTextField1();
           JTextField tenkhachhangJTextField1 = Gui.getTenkhachhangJTextField1();
           JTextField maphongJTextField1 = Gui.getMaphongJTextField1();
@@ -63,7 +68,7 @@ public class ADDTheoNgay implements ActionListener {
     	
     	//hoadon.Them();
   		//hdngay.ThanhTien();
-     	LoadTableNgay();
+     	//LoadTableNgay();
       }
       
      //  tai du lieu len bang      

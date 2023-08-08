@@ -39,9 +39,10 @@ public class DeletNgay implements ActionListener {
 		            return;
 			}
 			 int mahd = Integer.parseInt(mahoadonJTextField1.getText());
-	         mahd =(int) table1.getValueAt(row, 0);
-	         hdngay.Xoa(mahd);		
-	  		LoadTableNgay();	  		
+	         mahd =(int) table1.getValueAt(row, 0);	        
+	         hdngay.Xoa(mahd);	
+	        
+	  		//LoadTableNgay();	  		
 	  		mahoadonJTextField1.setText("");	  	  
 			tenkhachhangJTextField1.setText("");		
 			maphongJTextField1.setText("");
@@ -51,8 +52,7 @@ public class DeletNgay implements ActionListener {
     }
          public void LoadTableNgay() {
             HDService hd = Gui.getHoaDonService();
-     	    List<HDTheoNgay> hoadons = hd.getAllHD();
-     	
+     	    List<HDTheoNgay> hoadons = hd.getAllHD();     	
      	      JTable table = Gui.getTable1();
      	      DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
      		  tableModel.setRowCount(0);
